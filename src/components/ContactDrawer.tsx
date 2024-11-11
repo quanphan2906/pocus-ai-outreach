@@ -5,7 +5,7 @@ import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TabsNavigation } from "./TabsNavigation";
 import ChatInterface from "./ChatInterface";
-import conversation from "@/data/conversation";
+import conversation, { reply } from "@/data/conversation";
 
 export function ContactDrawer() {
 	const [messages, setMessages] = useState(conversation);
@@ -17,16 +17,10 @@ export function ContactDrawer() {
 		const input = form.elements.namedItem("message") as HTMLTextAreaElement;
 		if (input.value.trim()) {
 			setMessages([...messages, { role: "user", content: input.value }]);
+
 			// Simulate AI response
 			setTimeout(() => {
-				setMessages((prev) => [
-					...prev,
-					{
-						role: "assistant",
-						content:
-							"I've adjusted the message to be more focused on Algolia's specific use case while maintaining the personal touch. How's this version?",
-					},
-				]);
+				setMessages((prev) => [...prev, reply]);
 			}, 1000);
 			input.value = "";
 		}

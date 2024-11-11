@@ -12,21 +12,19 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
 	messages,
 	handleSendMessage,
 }) => (
-	<div className="flex-1 flex flex-col">
-		<div className="border rounded-lg">
-			<div className="border-b p-4">
-				<span className="border p-1 rounded-md w-1 mr-2">💬</span>
-				<span className="font-semibold text-lg">Chat</span>
-			</div>
-			<ScrollArea className="flex p-4">
-				<div className="space-y-4">
-					{messages.map((message, index) => (
-						<ChatMessage key={index} message={message} />
-					))}
-				</div>
-			</ScrollArea>
-			<MessageInputForm handleSendMessage={handleSendMessage} />
+	<div className="border rounded-lg">
+		<div className="border-b p-4">
+			<span className="border p-1 rounded-md w-1 mr-2">💬</span>
+			<span className="font-semibold text-lg">Chat</span>
 		</div>
+		<ScrollArea className="flex p-4 h-[380px]">
+			<div className="space-y-4">
+				{messages.map((message, index) => (
+					<ChatMessage key={index} message={message} />
+				))}
+			</div>
+		</ScrollArea>
+		<MessageInputForm handleSendMessage={handleSendMessage} />
 	</div>
 );
 
