@@ -7,9 +7,9 @@ import { TabsNavigation } from "./TabsNavigation";
 import ChatInterface from "./ChatInterface";
 import conversation, { reply } from "@/data/conversation";
 
-export function ContactDrawer() {
+export function ContactDrawer({ isOpen }: { isOpen: boolean }) {
 	const [messages, setMessages] = useState(conversation);
-	const [activeTab, setActiveTab] = useState<string>("message");
+	const [activeTab, setActiveTab] = useState<string>("overview");
 
 	const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -27,7 +27,11 @@ export function ContactDrawer() {
 	};
 
 	return (
-		<div className="fixed inset-y-0 right-0 w-1/2 border-l bg-background flex flex-col">
+		<div
+			className={`fixed inset-y-0 right-0 w-3/4 border-l bg-background flex flex-col z-50 transform transition-transform  ${
+				isOpen ? "translate-x-0" : "translate-x-full"
+			} duration-[1000ms] linear`}
+		>
 			<div className="flex items-center justify-between p-4 pt-8">
 				<div className="flex items-center gap-4">
 					<div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">

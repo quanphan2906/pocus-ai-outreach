@@ -1,7 +1,8 @@
-import { Send } from "lucide-react";
+import { Send, User, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Badge } from "./ui/badge";
 
 interface ChatInterfaceProps {
 	messages: { role: string; content: string }[];
@@ -13,11 +14,30 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
 	handleSendMessage,
 }) => (
 	<div className="border rounded-lg">
-		<div className="border-b p-4">
-			<span className="border p-1 rounded-md w-1 mr-2">💬</span>
-			<span className="font-semibold text-lg">Chat</span>
+		<div className="border-b p-4 gap-8 flex flex-row">
+			<div className="space-x-2">
+				<span className="border p-1 rounded-md w-1">💬</span>
+				<span className="font-semibold text-lg">Chat</span>
+			</div>
+			<div className="text-muted-foreground flex items-center">
+				New pipeline
+			</div>
 		</div>
-		<ScrollArea className="flex p-4 h-[380px]">
+		<div className="border-b p-4 gap-2 flex flex-row">
+			<div className="inline-flex items-center gap-2 rounded-md bg-gray-50 p-2 pr-3 text-sm">
+				<User className="h-4 w-4 text-gray-500" />
+				<span className="font-medium">User</span>
+				<span className="text-gray-500">is</span>
+				<span>Job Switcher</span>
+			</div>
+			<div className="inline-flex items-center gap-2 rounded-md bg-gray-50 p-2 pr-3 text-sm">
+				<User className="h-4 w-4 text-gray-500" />
+				<span className="font-medium">User</span>
+				<span className="text-gray-500">is</span>
+				<span>Manager+</span>
+			</div>
+		</div>
+		<ScrollArea className="flex p-4 h-[280px]">
 			<div className="space-y-4">
 				{messages.map((message, index) => (
 					<ChatMessage key={index} message={message} />

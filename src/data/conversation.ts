@@ -1,19 +1,5 @@
 const conversation = [
 	{
-		role: "user",
-		content: `
-            Craft a personalized outreach message to the contact. Below are the details you should consider:
-
-            Goal of the Outreach: Build new pipeline.
-
-            Important Signals to Include: Channels created > 4, User is a Job switcher.
-
-            Do's: Make the message concise, friendly, and focused on the contact's needs. Include relevant signals to highlight why this outreach is valuable to them.
-
-            Don'ts: Avoid generic language, overly aggressive sales tactics, and too much technical jargon.
-        `,
-	},
-	{
 		role: "assistant",
 		content: `Hi Rod,
 

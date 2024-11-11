@@ -12,6 +12,8 @@ interface TabsNavigationProps {
 
 const tabData: Tab[] = [
 	{ id: "overview", label: "Overview" },
+	{ id: "activity", label: "Activity (458)" },
+	{ id: "visits", label: "Website visits" },
 	{ id: "message", label: "Message" },
 ];
 
